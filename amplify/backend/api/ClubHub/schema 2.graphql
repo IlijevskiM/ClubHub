@@ -1,0 +1,105 @@
+type Draft @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  clubCategory: String!
+  title: String!
+  bodyText: String
+  link: String
+  firstName: String!
+  lastName: String!
+  username: String!
+  userID: ID! @index(name: "byUser")
+  savedTime: AWSDateTime!
+}
+
+type Event @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String!
+  location: String!
+  description: String!
+  date: AWSDateTime!
+  start: AWSDateTime!
+  end: AWSDateTime!
+  capacity: Int!
+  type: String!
+  publishedTime: AWSDateTime!
+  signees: [User] @manyToMany(relationName: "EventUser")
+  color: String!
+}
+
+type Donation @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  publishedTime: AWSDateTime!
+  title: String!
+  location: String!
+  description: String!
+  due: AWSDateTime!
+  signees: [User] @manyToMany(relationName: "DonationUser")
+}
+
+type Outside @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  publishedTime: AWSDateTime!
+  title: String!
+  due: AWSDateTime!
+  hourLimit: Int!
+  signees: [User] @manyToMany(relationName: "OutsideUser")
+}
+
+type Club @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  clubProfileKey: String!
+  clubName: String!
+  clubCode: String!
+  publishedTime: AWSDateTime!
+  members: [User!] @manyToMany(relationName: "UserClub")
+  creators: [String!]!
+}
+
+type Comment @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  text: String!
+  likes: Int!
+  postID: ID! @index(name: "byPost")
+  publishedTime: AWSDateTime!
+  liked: Boolean!
+  userID: ID! @index(name: "byUser")
+  firstName: String!
+  lastName: String!
+  username: String!
+}
+
+type Post @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  clubCategory: String!
+  title: String!
+  bodyText: String
+  link: String
+  firstName: String!
+  lastName: String!
+  username: String!
+  comments: [Comment] @hasMany(indexName: "byPost", fields: ["id"])
+  likes: Int!
+  saved: Boolean!
+  liked: Boolean!
+  publishedTime: AWSDateTime!
+  userID: ID! @index(name: "byUser")
+}
+
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  username: String!
+  firstName: String
+  lastName: String
+  email: String
+  userAttemptsForClubOwnerCode: Int!
+  posts: [Post] @hasMany(indexName: "byUser", fields: ["id"])
+  comments: [Comment] @hasMany(indexName: "byUser", fields: ["id"])
+  groups: [String]
+  userIsAddedToGroup: Boolean!
+  events: [Event] @manyToMany(relationName: "EventUser")
+  drafts: [Draft] @hasMany(indexName: "byUser", fields: ["id"])
+  clubs: [Club!] @manyToMany(relationName: "UserClub")
+  donations: [Donation] @manyToMany(relationName: "DonationUser")
+  outsides: [Outside] @manyToMany(relationName: "OutsideUser")
+}
+ 

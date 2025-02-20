@@ -1,0 +1,86 @@
+{
+    "UserAgent": "aws-amplify/cli",
+    "Version": "0.1.0",
+    "IdentityManager": {
+        "Default": {}
+    },
+    "AppSync": {
+        "Default": {
+            "ApiUrl": "https://2uvicquphbh3nfnbzkj3akcjtm.appsync-api.us-east-2.amazonaws.com/graphql",
+            "Region": "us-east-2",
+            "AuthMode": "API_KEY",
+            "ApiKey": "da2-6ffi26hrafh57j4gvqz5tuy3zu",
+            "ClientDatabasePrefix": "ClubHub_API_KEY"
+        },
+        "ClubHub_AWS_IAM": {
+            "ApiUrl": "https://2uvicquphbh3nfnbzkj3akcjtm.appsync-api.us-east-2.amazonaws.com/graphql",
+            "Region": "us-east-2",
+            "AuthMode": "AWS_IAM",
+            "ClientDatabasePrefix": "ClubHub_AWS_IAM"
+        }
+    },
+    "CredentialsProvider": {
+        "CognitoIdentity": {
+            "Default": {
+                "PoolId": "us-east-2:6b5abf22-feed-4a77-bc39-d2bf5a92c286",
+                "Region": "us-east-2"
+            }
+        }
+    },
+    "CognitoUserPool": {
+        "Default": {
+            "PoolId": "us-east-2_uBeWFWjDb",
+            "AppClientId": "1v0tdf82qbvpfj00jct6lefjc8",
+            "Region": "us-east-2"
+        }
+    },
+    "Auth": {
+        "Default": {
+            "OAuth": {
+                "WebDomain": "2vciww0z38oo-staging.auth.us-east-2.amazoncognito.com",
+                "AppClientId": "1v0tdf82qbvpfj00jct6lefjc8",
+                "SignInRedirectURI": "https://localhost:3000/",
+                "SignOutRedirectURI": "https://localhost:3000/",
+                "Scopes": [
+                    "phone",
+                    "email",
+                    "openid",
+                    "profile",
+                    "aws.cognito.signin.user.admin"
+                ]
+            },
+            "authenticationFlowType": "USER_SRP_AUTH",
+            "mfaConfiguration": "OFF",
+            "mfaTypes": [
+                "SMS"
+            ],
+            "passwordProtectionSettings": {
+                "passwordPolicyMinLength": 8,
+                "passwordPolicyCharacters": [
+                    "REQUIRES_LOWERCASE",
+                    "REQUIRES_NUMBERS",
+                    "REQUIRES_SYMBOLS",
+                    "REQUIRES_UPPERCASE"
+                ]
+            },
+            "signupAttributes": [
+                "GIVEN_NAME",
+                "FAMILY_NAME",
+                "EMAIL"
+            ],
+            "socialProviders": [
+                "GOOGLE"
+            ],
+            "usernameAttributes": [],
+            "verificationMechanisms": [
+                "EMAIL"
+            ]
+        }
+    },
+    "S3TransferUtility": {
+        "Default": {
+            "Bucket": "clubhub-storage-56e54857205319-staging",
+            "Region": "us-east-2"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-clubhub-staging-205319-authRole",
+      "UnauthRoleArn": "arn:aws:iam::834348929521:role/amplify-clubhub-staging-205319-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::834348929521:role/amplify-clubhub-staging-205319-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-clubhub-staging-205319-deployment",
+      "UnauthRoleName": "amplify-clubhub-staging-205319-unauthRole",
+      "StackName": "amplify-clubhub-staging-205319",
+      "StackId": "arn:aws:cloudformation:us-east-2:834348929521:stack/amplify-clubhub-staging-205319/53ccbef0-0a2c-11ee-91ba-0690bb6f356d",
+      "AmplifyAppId": "d2yh4lsfbvsd35"
+    },
+    "categories": {
+      "auth": {
+        "ClubHub": {}
+      },
+      "storage": {
+        "s3clubhubstorage56e54857": {}
+      }
+    }
+  }
+}

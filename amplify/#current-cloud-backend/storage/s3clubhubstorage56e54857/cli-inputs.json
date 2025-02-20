@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3clubhubstorage56e54857",
+  "bucketName": "clubhub-storage-56e54857",
+  "policyUUID": "993abcd5",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}

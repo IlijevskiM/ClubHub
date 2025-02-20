@@ -1,0 +1,114 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-clubhub-staging-205319-authRole",
+      "UnauthRoleArn": "arn:aws:iam::834348929521:role/amplify-clubhub-staging-205319-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::834348929521:role/amplify-clubhub-staging-205319-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-clubhub-staging-205319-deployment",
+      "UnauthRoleName": "amplify-clubhub-staging-205319-unauthRole",
+      "StackName": "amplify-clubhub-staging-205319",
+      "StackId": "arn:aws:cloudformation:us-east-2:834348929521:stack/amplify-clubhub-staging-205319/53ccbef0-0a2c-11ee-91ba-0690bb6f356d",
+      "AmplifyAppId": "d2yh4lsfbvsd35"
+    }
+  },
+  "api": {
+    "ClubHub": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            }
+          }
+        },
+        "GraphQLAPIIdOutput": "w2pfkvbjx5gstkvl2cctekp4oi",
+        "GraphQLAPIEndpointOutput": "https://2uvicquphbh3nfnbzkj3akcjtm.appsync-api.us-east-2.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-6ffi26hrafh57j4gvqz5tuy3zu"
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync",
+      "lastPushTimeStamp": "2023-08-23T16:12:39.112Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-clubhub-staging-205319-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiClubHub"
+      },
+      "lastPushDirHash": "6bLpjONm2M+6UVmgAHddfw0pPBg="
+    }
+  },
+  "auth": {
+    "ClubHub": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": [
+            "REQUIRES_LOWERCASE",
+            "REQUIRES_NUMBERS",
+            "REQUIRES_SYMBOLS",
+            "REQUIRES_UPPERCASE"
+          ]
+        },
+        "signupAttributes": [
+          "GIVEN_NAME",
+          "FAMILY_NAME",
+          "EMAIL"
+        ],
+        "socialProviders": [
+          "GOOGLE"
+        ],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "output": {
+        "UserPoolId": "us-east-2_uBeWFWjDb",
+        "AppClientIDWeb": "2d98tf8gonjt7947mrht1bhvgs",
+        "AppClientID": "1v0tdf82qbvpfj00jct6lefjc8",
+        "HostedUIDomain": "2vciww0z38oo-staging",
+        "IdentityPoolId": "us-east-2:6b5abf22-feed-4a77-bc39-d2bf5a92c286",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-2:834348929521:userpool/us-east-2_uBeWFWjDb",
+        "IdentityPoolName": "testAuthIdentityPool__staging",
+        "OAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://localhost:3000/\"],\"LogoutURLs\":[\"https://localhost:3000/\"]}",
+        "UserPoolName": "ClubHub"
+      },
+      "lastPushTimeStamp": "2023-08-23T16:12:38.994Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-clubhub-staging-205319-deployment/amplify-cfn-templates/auth/ClubHub-cloudformation-template.json",
+        "logicalId": "authClubHub"
+      }
+    }
+  },
+  "storage": {
+    "s3clubhubstorage56e54857": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3",
+      "output": {
+        "BucketName": "clubhub-storage-56e54857205319-staging",
+        "Region": "us-east-2"
+      },
+      "lastPushTimeStamp": "2023-08-23T16:12:38.995Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-clubhub-staging-205319-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
+        "logicalId": "storages3clubhubstorage56e54857"
+      }
+    }
+  }
+}
